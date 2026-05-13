@@ -1,60 +1,117 @@
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:1rem 0">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TUMAR Group — Цветовая палитра</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #191919;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    max-width: 680px;
+    width: 100%;
+  }
+  .card {
+    background: #2f2f2f;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .swatch {
+    height: 110px;
+    border-radius: 10px 10px 0 0;
+  }
+  .swatch-white {
+    border-bottom: 1px solid #3d3d3d;
+  }
+  .info { padding: 12px 14px; }
+  .name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e3e3e3;
+    margin-bottom: 10px;
+    letter-spacing: 0.01em;
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .code {
+    font-size: 11px;
+    font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+    color: #888;
+  }
+  .copy-btn {
+    font-size: 10px;
+    padding: 2px 7px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    background: #383838;
+    cursor: pointer;
+    color: #aaa;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+    margin-left: 6px;
+  }
+  .copy-btn:hover { background: #444; color: #e0e0e0; }
+  .copy-btn.copied { background: #1e3a2a; border-color: #2d6a4f; color: #6fcf97; }
+</style>
+</head>
+<body>
+<div class="grid">
 
-  <div style="border-radius:var(--border-radius-lg);overflow:hidden;border:0.5px solid var(--color-border-tertiary)">
-    <div style="background:#51061A;height:120px"></div>
-    <div style="padding:14px 16px;background:var(--color-background-primary)">
-      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px">Бордо</p>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">HEX #51061A</span>
-        <button onclick="navigator.clipboard.writeText('#51061A')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">RGB 81, 6, 26</span>
-        <button onclick="navigator.clipboard.writeText('rgb(81, 6, 26)')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">CMYK 40, 91, 62, 67</span>
-        <button onclick="navigator.clipboard.writeText('40, 91, 62, 67')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
+  <div class="card">
+    <div class="swatch" style="background:#51061A"></div>
+    <div class="info">
+      <p class="name">Бордо</p>
+      <div class="row"><span class="code">HEX #51061A</span><button class="copy-btn" onclick="copy(this,'#51061A')">копировать</button></div>
+      <div class="row"><span class="code">RGB 81, 6, 26</span><button class="copy-btn" onclick="copy(this,'rgb(81, 6, 26)')">копировать</button></div>
+      <div class="row"><span class="code">CMYK 40, 91, 62, 67</span><button class="copy-btn" onclick="copy(this,'40, 91, 62, 67')">копировать</button></div>
     </div>
   </div>
 
-  <div style="border-radius:var(--border-radius-lg);overflow:hidden;border:0.5px solid var(--color-border-tertiary)">
-    <div style="background:#1C1F3C;height:120px"></div>
-    <div style="padding:14px 16px;background:var(--color-background-primary)">
-      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px">Тёмно-синий</p>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">HEX #1C1F3C</span>
-        <button onclick="navigator.clipboard.writeText('#1C1F3C')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">RGB 28, 31, 60</span>
-        <button onclick="navigator.clipboard.writeText('rgb(28, 31, 60)')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">CMYK 99, 91, 43, 54</span>
-        <button onclick="navigator.clipboard.writeText('99, 91, 43, 54')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
+  <div class="card">
+    <div class="swatch" style="background:#1C1F3C"></div>
+    <div class="info">
+      <p class="name">Тёмно-синий</p>
+      <div class="row"><span class="code">HEX #1C1F3C</span><button class="copy-btn" onclick="copy(this,'#1C1F3C')">копировать</button></div>
+      <div class="row"><span class="code">RGB 28, 31, 60</span><button class="copy-btn" onclick="copy(this,'rgb(28, 31, 60)')">копировать</button></div>
+      <div class="row"><span class="code">CMYK 99, 91, 43, 54</span><button class="copy-btn" onclick="copy(this,'99, 91, 43, 54')">копировать</button></div>
     </div>
   </div>
 
-  <div style="border-radius:var(--border-radius-lg);overflow:hidden;border:0.5px solid var(--color-border-tertiary)">
-    <div style="background:#ffffff;height:120px;border-bottom:0.5px solid var(--color-border-tertiary)"></div>
-    <div style="padding:14px 16px;background:var(--color-background-primary)">
-      <p style="font-size:13px;font-weight:500;color:var(--color-text-primary);margin:0 0 8px">Белый</p>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">HEX #FFFFFF</span>
-        <button onclick="navigator.clipboard.writeText('#FFFFFF')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">RGB 255, 255, 255</span>
-        <button onclick="navigator.clipboard.writeText('rgb(255, 255, 255)')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-size:12px;color:var(--color-text-secondary);font-family:var(--font-mono)">CMYK 0, 0, 0, 0</span>
-        <button onclick="navigator.clipboard.writeText('0, 0, 0, 0')" style="font-size:11px;padding:2px 8px;cursor:pointer;border-radius:4px">#</button>
-      </div>
+  <div class="card">
+    <div class="swatch swatch-white" style="background:#FFFFFF"></div>
+    <div class="info">
+      <p class="name">Белый</p>
+      <div class="row"><span class="code">HEX #FFFFFF</span><button class="copy-btn" onclick="copy(this,'#FFFFFF')">копировать</button></div>
+      <div class="row"><span class="code">RGB 255, 255, 255</span><button class="copy-btn" onclick="copy(this,'rgb(255, 255, 255)')">копировать</button></div>
+      <div class="row"><span class="code">CMYK 0, 0, 0, 0</span><button class="copy-btn" onclick="copy(this,'0, 0, 0, 0')">копировать</button></div>
     </div>
   </div>
 
 </div>
+<script>
+function copy(btn, text) {
+  navigator.clipboard.writeText(text);
+  btn.textContent = '✓ готово';
+  btn.classList.add('copied');
+  setTimeout(() => { btn.textContent = 'копировать'; btn.classList.remove('copied'); }, 2000);
+}
+</script>
+</body>
+</html>
